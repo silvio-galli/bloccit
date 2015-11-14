@@ -1,3 +1,15 @@
+## Bloccit : a Reddit replica to teach the fundamentals of web development and Rails. ##
+
+Made with the help of my mentor at [Bloc](http://www.bloc.io).
+
+
+
+
+
+
+
+
+
 == README
 
 This README would normally document whatever steps are necessary to get the
