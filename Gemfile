@@ -30,3 +30,6 @@ gem 'jquery-rails'
 
 # Turbolinks
 gem 'turbolinks'
+
+# Bootstrap
+gem 'bootstrap-sass'
