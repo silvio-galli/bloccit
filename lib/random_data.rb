@@ -14,7 +14,7 @@ module RandomData
 			strings << random_word
 		end
 
-		sentence = strings.join("")
+		sentence = strings.join(" ")
 		sentence.capitalize << "."
 	end
 
