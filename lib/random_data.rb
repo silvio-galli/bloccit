@@ -23,4 +23,15 @@ module RandomData
 		letters.shuffle!
 		letters[0, rand(3..8)].join
 	end
+
+	def random_check
+		true_or_false = ["true", "false", "true", "false", "true", "false", "false", "true", "false", "true", "false", "true"]
+		check = true_or_false.shuffle.sample
+		if check == "true"
+		    true
+		else
+		    false
+		end
+	end
+	
 end

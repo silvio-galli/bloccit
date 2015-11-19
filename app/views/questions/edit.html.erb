@@ -1,0 +1,31 @@
+<h1>Edit Question <%= @question.id %></h1>
+
+<div class="row">
+	<div class="col-md-4">
+		<ul>
+			<p>Guidelines to .....</p>
+			<li>Point 1 ....</li>
+			<li>Point 2 ....</li>
+			<li>Point 3 ....</li>
+		</ul>
+	</div>
+	<div class="col-md-8">
+		<%= form_for @question do |f| %>
+			<div class="form-group">
+				<%= f.label :title %>
+				<%= f.text_field :title, class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<%= f.label :body %>
+				<%= f.text_field :body, class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<%= f.check_box :resolved %>
+				If checked, the question is closed.
+			</div>
+			<div class="form-group">
+				<%= f.submit "Save", class: 'btn btn-success' %>
+			</div>
+		<% end %>
+	</div>
+</div>
