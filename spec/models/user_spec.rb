@@ -43,5 +43,5 @@ RSpec.describe User, type: :model do
       expect(user_with_invalid_email_format).to_not be_valid
     end
   end
-   
+
 end
