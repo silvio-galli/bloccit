@@ -38,7 +38,7 @@ end
 user = User.first
 user.update_attributes!(
 	email: "silvio.galli@gmail.com",
-	password: "password"
+	password: "helloworld"
 )
 
 puts "Seeds finished!"
