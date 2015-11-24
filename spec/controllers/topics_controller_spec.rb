@@ -3,8 +3,9 @@ include RandomData
 
  RSpec.describe TopicsController, :type => :controller do
 
- 	let (:my_topic) { Topic.create!(name:  RandomData.random_sentence, description: RandomData.random_paragraph) }
-  let(:my_post) { my_topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph) }
+  let(:my_user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
+  let (:my_topic) { Topic.create!(name:  RandomData.random_sentence, description: RandomData.random_paragraph, public: true) }
+  let(:my_post) { my_topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: my_user) }
 
   describe "GET show" do
     it "returns http success" do
@@ -36,22 +37,22 @@ include RandomData
 
     it "initializes @topic" do
       get :new, topic_id: my_topic.id
-      expect(assigns(:post)).not_to be_nil
+      expect(assigns(:topic)).not_to be_nil
     end
   end
 
   describe "POST create" do
     it "increases the number of topics by 1" do
-      expect{post :create, topic_id: my_topic.id, post: {name: RandomData.random_sentence, description: RandomData.random_paragraph}}.to change(Post,:count).by(1)
+      expect{post :create, topic_id: my_topic.id, post: {name: RandomData.random_sentence, description: RandomData.random_paragraph, public: true}}.to change(Topic,:count).by(1)
     end
 
-    it "assigns Post.last to @post" do
-      post :create, topic_id: my_topic.id, post: {name: RandomData.random_sentence, description: RandomData.random_paragraph}
+    it "assigns Post.last to @topic" do
+      post :create, topic_id: my_topic.id, post: {name: RandomData.random_sentence, description: RandomData.random_paragraph, public: true}
       expect(assigns(:post)).to eq Post.last
     end
 
     it "redirects to the new topic" do
-      post :create, topic_id: my_topic.id, post: {name: RandomData.random_sentence, description: RandomData.random_paragraph}
+      post :create, topic_id: my_topic.id, post: {name: RandomData.random_sentence, description: RandomData.random_paragraph, public: true}
       expect(response).to redirect_to [my_topic, Post.last]
     end
    end
