@@ -4,7 +4,12 @@ class Rating < ActiveRecord::Base
   has_many :topics
 
   def self.update_rating(rating_string)
-    return rating.none if rating_string.empty?
+    if rating_string.present?
+      rating = Rating.where(severity: rating_string).first_or_create
+    else
+      rating = Rating.where(severity: 2).first_or_create
+    end
+    rating
   end
 
 end

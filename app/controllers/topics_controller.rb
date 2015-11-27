@@ -1,5 +1,8 @@
 class TopicsController < ApplicationController
 
+  before_action :require_sign_in, except: [:index, :show]
+	before_action :authorize_user, except: [:index, :show]
+
 	def index
 		@topics = Topic.all
 	end
@@ -17,6 +20,8 @@ class TopicsController < ApplicationController
 
 		if @topic.save
 			@topic.labels = Label.update_labels(params[:topic][:labels])
+			@topic.rating = Rating.update_rating(params[:topic][:rating])
+
 			redirect_to @topic, notice: "Topic was saved successfully."
 		else
 			flash[:error] = "Error creating topic. Please try again."
@@ -54,12 +59,9 @@ class TopicsController < ApplicationController
 		end
 	end
 
-	before_action :require_sign_in, except: [:index, :show]
-	before_action :authorize_user, except: [:index, :show]
-
 	private
 	def topic_params
-		params.require(:topic).permit(:name, :description, :public, :rating)
+		params.require(:topic).permit(:name, :description, :public)
 	end
 
 	def authorize_user
