@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
 	before_action :authorize_user, except: [:index, :show]
 
 	def index
-		@topics = Topic.all
+		@topics = Topic.order_by_newest_first
 	end
 
 	def show
@@ -17,11 +17,10 @@ class TopicsController < ApplicationController
 
 	def create
 		@topic = Topic.new(topic_params)
+	  @topic.rating = Rating.update_rating(params[:topic][:rating])
 
 		if @topic.save
 			@topic.labels = Label.update_labels(params[:topic][:labels])
-			@topic.rating = Rating.update_rating(params[:topic][:rating])
-
 			redirect_to @topic, notice: "Topic was saved successfully."
 		else
 			flash[:error] = "Error creating topic. Please try again."
@@ -36,7 +35,8 @@ class TopicsController < ApplicationController
 	def update
 		@topic = Topic.find(params[:id])
 		@topic.assign_attributes(topic_params)
-
+	  @topic.rating = Rating.update_rating(params[:topic][:rating])
+		
 		if @topic.save
 			@topic.labels = Label.update_labels(params[:topic][:labels])
 			flash[:notice] = "Topic was updated."
