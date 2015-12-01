@@ -20,7 +20,14 @@
 	<div class="form-group">
 		<%= render partial: 'labels/form', locals: { f: f, topic: @topic, labels: @post.labels } %>
 	</div>
-
+	<div class="form-group">
+		<%= f.label :rating %>
+		<% if @post.rating %>
+			<%= f.select :rating, options_for_select(Post::RATINGS, @post.rating) %>
+		<% else %>
+			<%= f.select :rating, options_for_select(Post::RATINGS) %>
+		<% end %>
+	</div>
 	<div class="form-group">
 		<%= f.submit "Save", class: 'btn btn-success' %>
 	</div>

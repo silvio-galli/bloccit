@@ -12,4 +12,7 @@ class Post < ActiveRecord::Base
 	validates :topic, presence: true
 	validates :user, presence: true
 
+	RATINGS = [ "PG", "PG13", "R" ]
+	validates :rating, inclusion: { in: %w(PG PG13 R), message: "%{value} is not a valid rating" }
+
 end

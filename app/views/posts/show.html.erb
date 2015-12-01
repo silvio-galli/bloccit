@@ -1,5 +1,8 @@
 <h1>
 	<%= @post.title %>
+	<% if @post.rating %>
+		<%= link_to @post.rating, "", class: "btn btn-info" %>
+	<% end %>
 	<br />
 	<small>
 		submitted <%= time_ago_in_words(@post.created_at) %> ago, by <%= @post.user.name %>
