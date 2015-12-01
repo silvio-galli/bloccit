@@ -76,6 +76,12 @@ RSpec.describe Post, type: :model do
 				expect(post.rank).to eq (old_rank - 1)
 			end
 		end
+
+		describe "#create_vote" do
+			it "#after_create should call create_vote on post" do
+	      expect(post).to receive(:create_vote)
+	    end
+		end
 	end
 
 
