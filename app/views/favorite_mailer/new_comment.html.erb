@@ -9,7 +9,7 @@
       by: <%= @comment.user.name %>
     </small>
     <p>
-      <%= comment.body %>
+      <%= @comment.body %>
     </p>
     <p>
       <%= link_to "View comment on site", topic_post_url(@post.topic, @post, anchor: "comment-#{@comment.id}") %>
