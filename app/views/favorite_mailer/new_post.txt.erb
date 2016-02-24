@@ -1,0 +1,10 @@
+New post on Bloccit: <%= @post.title %>
+<%= "=" * (@post.title.length + 12) %>
+
+By you
+
+<%= @post.body %>
+
+Visit online at: <%= topic_post_url(@post.topic, @post) %>
+
+You'll be noticed every time your post receive a comment.
