@@ -9,22 +9,35 @@
 				</div>
 			<% end %>
 			<div class="media-body">
-				<h2 class="media-heading"><%= @user.name %></h2>
-				<small>
-					<%= pluralize(@user.posts.count, 'post') %>,
-					<%= pluralize(@user.comments.count, 'comment') %>
-				</small>
+					<h2 class="media-heading"><%= @user.name %></h2>
+					<small>
+						<%= pluralize(@user.posts.count, 'post') %>,
+						<%= pluralize(@user.comments.count, 'comment') %>
+					</small>
 			</div>
 		</div>
 	</div>
 </div>
 
-<h2>Posts</h2>
-<% @user.posts.each do |post| %>
-	<%= render partial: 'posts/post', locals: { post: post } %>
+<% if user_has_got_posts?(@user) %>
+	<h2>Posts</h2>
+	<% @user.posts.each do |post| %>
+		<%= render partial: 'posts/post', locals: { post: post } %>
+	<% end %>
+<% else %>
+	<h4><%= "#{@user.name} has not submitted any post yet." %></h4>
 <% end %>
 
-<h2>Comments</h2>
-<% @user.comments.each do |comment| %>
-	<%= render partial: 'comments/comment', locals: { comment: comment } %>
+<% if user_has_got_comments?(@user) %>
+	<h2>Comments</h2>
+	<% @user.comments.each do |comment| %>
+		<%= render partial: 'comments/comment', locals: { comment: comment } %>
+	<% end %>
+<% else %>
+	<h4><%= "#{@user.name} has not submitted any comment yet." %></h4>
+<% end %>
+
+<h2>My favorite posts</h2>
+<% @user.favorites.each do |fav| %>
+	<%= render partial: 'posts/fav_post_list', locals: { fav: fav } %>
 <% end %>

@@ -1,0 +1,15 @@
+<div class="media">
+  <div class="media-body">
+    <div class="media-heading">
+      <% avatar_url = fav.user.avatar_url(24) %>
+      <% if avatar_url %>
+        <%= image_tag avatar_url %>
+      <% end %>
+      <%= link_to fav.post.title, topic_post_path(fav.post.topic, fav.post) %>
+      <br />
+      <small>
+        <%= fav.post.points %> votes | <%= fav.post.comments.count %> comments
+      </small>
+    </div>
+  </div>
+</div>
