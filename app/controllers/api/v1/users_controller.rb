@@ -11,4 +11,10 @@ class Api::V1::UsersController < Api::V1::BaseController
     users = User.all
     render json: users.to_json, status: 200
   end
+
+  def create
+  end
+
+  def update
+  end
 end
