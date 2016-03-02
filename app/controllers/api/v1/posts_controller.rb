@@ -11,7 +11,7 @@ class Api::V1::PostsController < Api::V1::BaseController
 	
 	def create
 		topic = Topic.find(params[:topic_id])
-		post = topic.posts.new(post_params)
+		post = topic.posts.build(post_params)
 		if post.valid?
 			post.save!
 			render json: post.to_json, status: 201
@@ -32,6 +32,6 @@ class Api::V1::PostsController < Api::V1::BaseController
 
 	private
 		def post_params
-			params.require(:post).permit(:title, :body)
+			params.require(:post).permit(:title, :body, :user_id)
 		end
 end
