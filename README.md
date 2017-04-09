@@ -1,4 +1,5 @@
-# Bloccit [![Gem Version](https://badge.fury.io/rb/faker.svg)](https://badge.fury.io/rb/faker)
+# Bloccit
+
 A Reddit replica that lets users create discussion topics, post on them, comment posts, and vote them.
 
 Made with the help of my mentor [Charlie Gaines](https://github.com/beaugaines) at [Bloc](http://www.bloc.io).
@@ -13,7 +14,7 @@ The project is based on **Ruby on Rails**, uses **Bootstrap** for the layout and
 Makes also use of **jQuery** for asyncronous comments creation and deletion.
 
 ## Authentication
-Authentication makes use of `Bcrypt` gem to store a secure hash of users' passwords.
+Authentication makes use of `bcrypt` gem to store a secure hash of users' passwords.
 
 Sign-up is implemented by [`User` model validations](app/models/user.rb) and based on the `uniqueness` of email address.
 
@@ -23,3 +24,8 @@ Everyone is allowed to read topics, posts and comments, but users who want to cr
 
 ## Authorization
 Authorization is handled through a `before_action` callback of [`TopicsController`](app/controllers/topics_controller.rb), [`PostsController`](app/controllers/posts_controller.rb) and [`CommentsController`](app/controllers/comments_controller.rb) `authorize_user` private method.
+
+---
+
+[![Gem Version](https://img.shields.io/badge/rails-4.2.4-green.svg?style=flat)]()
+[![Gem Version](https://img.shields.io/badge/bcrypt-3.1.10-green.svg?style=flat)]()
