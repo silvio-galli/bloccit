@@ -1,4 +1,4 @@
-# Bloccit
+# Bloccit [![Code Climate](https://codeclimate.com/github/silvio-galli/bloccit/badges/gpa.svg)](https://codeclimate.com/github/silvio-galli/bloccit)
 
 A Reddit replica that lets users create discussion topics, post on them, comment posts, and vote them.
 
@@ -26,6 +26,8 @@ Everyone is allowed to read topics, posts and comments, but users who want to cr
 Authorization is handled through a `before_action` callback of [`TopicsController`](app/controllers/topics_controller.rb), [`PostsController`](app/controllers/posts_controller.rb) and [`CommentsController`](app/controllers/comments_controller.rb) `authorize_user` private method.
 
 ---
-
-[![Gem Version](https://img.shields.io/badge/rails-4.2.4-green.svg?style=flat)]()
-[![Gem Version](https://img.shields.io/badge/bcrypt-3.1.10-green.svg?style=flat)]()
+###### mentioned gems
+![](https://img.shields.io/badge/rails-4.2.4-green.svg?style=flat)
+![](https://img.shields.io/badge/bootstrap_sass-3.3.5.1-green.svg?style=flat)
+![](https://img.shields.io/badge/jquery_rails-4.0.5-green.svg?style=flat)
+![](https://img.shields.io/badge/bcrypt-3.1.10-green.svg?style=flat)
