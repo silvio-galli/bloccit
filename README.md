@@ -1,4 +1,4 @@
-# Bloccit
+# Bloccit [![Gem Version](https://badge.fury.io/rb/faker.svg)](https://badge.fury.io/rb/faker)
 A Reddit replica that lets users create discussion topics, post on them, comment posts, and vote them.
 
 Made with the help of my mentor [Charlie Gaines](https://github.com/beaugaines) at [Bloc](http://www.bloc.io).
