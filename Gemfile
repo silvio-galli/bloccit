@@ -39,3 +39,5 @@ gem 'bootstrap-sass'
 
 # Used for encrypting User passwords
 gem 'bcrypt'
+# Hide application keys
+gem 'figaro', '1.0'
