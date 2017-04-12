@@ -1,3 +1,4 @@
+=begin
 if Rails.env.development? || Rails.env.production?
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
@@ -10,3 +11,4 @@ if Rails.env.development? || Rails.env.production?
     enable_starttls_auto: true
   }
 end
+=end
