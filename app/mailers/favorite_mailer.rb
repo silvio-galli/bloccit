@@ -1,5 +1,5 @@
 class FavoriteMailer < ApplicationMailer
-  default from: "silvio.galli@gmail.com"
+  default from: "fakeuser049@gmail.com"
 
   def new_comment(user, post, comment)
     headers["Message-ID"] = "<comments/#{comment.id}@bloccit.example>"
