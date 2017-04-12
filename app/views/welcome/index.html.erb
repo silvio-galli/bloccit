@@ -1,7 +1,7 @@
 <br />
 <div class="jumbotron">
   <h1>Bloccit</h1>
-  <p>Bloccit is a resource for sharing links with your friends</p>
+  <p>Bloccit is a resource for post and comment about a variety of topics</p>
   <p>
     <%= link_to "Sign In", new_session_path, class: 'btn btn-success' %> or
     <%= link_to "Sign Up", new_user_path, class: 'btn btn-primary' %> today!
@@ -9,15 +9,22 @@
 </div>
 <div class="row">
   <div class="col-md-4">
-    <h2>Makes you better looking</h2>
-    <p>Bloccit will make you better looking: it's scientifically ...</p>
+    <h2>Not signed in ?!?</h2>
+    <p>If you don't sign in you can only read.<br />If you want to create new posts and comments other users' posts you need to <%= link_to "sign up", new_user_path, title: "" %></p>
   </div>
   <div class="col-md-4">
-    <h2>Makes you better looking</h2>
-    <p>Bloccit will make you better looking: it's scientifically ...</p>
+    <h2>As a user you can...</h2>
+    <ul>
+      <li>Create posts on topics you like.</li>
+      <li>Comment other users' posts.</li>
+      <li>Favorite posts you like the most and receive email notifications every time other users comment on them.</li>
+    </ul>
   </div>
   <div class="col-md-4">
-    <h2>Makes you better looking</h2>
-    <p>Bloccit will make you better looking: it's scientifically ...</p>
+    <h2>If you want to test...</h2>
+    <ul>
+      <li>You can <%= link_to 'sign up', new_user_path, title: '' %> or</li>
+      <li>use our <strong> <%= link_to "demo users", about_path, title: '' %> </strong></li>
+    </ul>
   </div>
 </div>
